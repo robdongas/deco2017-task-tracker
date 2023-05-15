@@ -1,3 +1,6 @@
+import images from './images/thumbnails/*.gif';
+console.log(images)
+
 // Setting up variables for our HTML elements using DOM selection
 const form = document.getElementById("taskform");
 const tasklist = document.getElementById("tasklist");
@@ -29,12 +32,27 @@ function displayTasks() {
     if (localTasks !== null) {
 
         // Loop through all tasks in the array
-        localTasks.forEach(function(task) {
+        localTasks.forEach(function (task) {
+
+            let taskImage = null;
+            switch (task.type) {
+                case 'Concept Ideation':
+                    taskImage = images['ideate']
+                    break;
+                case 'Wireframing':
+                    taskImage = images['design']
+                    break;
+                case 'Application Coding':
+                    taskImage = images['code']
+                    break;
+                default:
+                    break;
+            }
 
             // Create new list item and populate with content (including data attribute for ID)
             let item = document.createElement("li");
             item.setAttribute("data-id", task.id);
-            item.innerHTML = `<p><strong>${task.name}</strong><br>${task.type}</p>`;
+            item.innerHTML = `<p><strong>${task.name}</strong><br>${task.type}</p><img src='${taskImage}' width='50'/>`;
             tasklist.appendChild(item);
 
             // Clear the value of the input once the task has been added to the page
@@ -50,7 +68,7 @@ function displayTasks() {
             delButton.addEventListener("click", function (event) {
 
                 // Loop through all the tasks to find the matching ID and remove it from the array
-                localTasks.forEach(function(taskArrayElement, taskArrayIndex) {
+                localTasks.forEach(function (taskArrayElement, taskArrayIndex) {
                     if (taskArrayElement.id == item.getAttribute('data-id')) {
                         localTasks.splice(taskArrayIndex, 1)
                     }
