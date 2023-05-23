@@ -58,11 +58,23 @@
                 >
             </div>
             <div class="form-row">
+                <label for="tags">Tags</label>
+                <input
+                    type="text"
+                    name="tags"
+                    id="tag"
+                    required="true"
+                >
+            </div>
+            <div class="form-row">
                 <input type="submit">
             </div>
         </form>
         <h2>Tasks</h2>
         <ul id="tasklist"></ul>
+        <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
         <script type="module" src="script.js"></script>
     </body>
 </html>
