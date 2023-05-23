@@ -5,10 +5,32 @@ console.log(images);
 const form = document.getElementById("taskform");
 const tasklist = document.getElementById("tasklist");
 
+// Initialize Tagify for the tags input field, we are using a template to include the remove button on each tag
+const tagsInput = document.getElementById("tags");
+const tagify = new Tagify(tagsInput);
+
+// Access the tags as an array using tagify.value
+const tagsArray = tagify.value;
+
+//list of options to add to the autocomplete form
+const autocompleteOptions = ["Lion", "Tiger", "Elephant", "Giraffe"];
+
+// Get the datalist element and the input element
+const datalist = document.getElementById("datalist-options");
+const autocompleteInput = document.getElementById("auto-c");
+
+// Populate the datalist with the options
+autocompleteOptions.forEach((option) => {
+  const optionElement = document.createElement("option");
+  optionElement.value = option;
+  datalist.appendChild(optionElement);
+});
+
+
 // Handle form submission, using input values to add new task
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  const tagsArray = tagify.value.map(tag => tag.value); // Extract the tag values
+  const tagsArray = tagify.value.map((tag) => tag.value); // Extract the tag values
   addTask(
     form.elements.taskName.value,
     form.elements.taskType.value,
@@ -16,17 +38,9 @@ form.addEventListener("submit", function (event) {
     form.elements.taskTime.value,
     form.elements.taskClient.value,
     tagsArray
-    
   );
 });
 
-// Initialize Tagify for the tags input field, we are using a template to include the remove button on each tag
-const tagsInput = document.getElementById("tags");
-const tagify = new Tagify(tagsInput);
-
-
-// Access the tags as an array using tagify.value
-const tagsArray = tagify.value;
 
 // General function for fetching tasks from localStorage and rendering to screen
 function displayTasks() {
@@ -105,7 +119,7 @@ function addTask(name, type, rate, time, client, tags) {
     rate,
     time,
     client,
-    tags
+    tags,
   };
 
   // Fetch and parse tasks array from localStorage

@@ -62,9 +62,20 @@
                 <input
                     type="text"
                     name="tags"
-                    id="tag"
+                    id="tags"
                     required="true"
                 >
+            </div>
+            <div class="form-row">
+                <label for="autocomplete">Auto complete</label>
+                <input
+                    type="text"
+                    name="auto-c"
+                    id="auto-c"
+                    required="true"
+                    list="datalist-options"
+                >
+                <datalist id="datalist-options"></datalist>
             </div>
             <div class="form-row">
                 <input type="submit">
