@@ -1,3 +1,7 @@
+//This is how we import our images, we specify the folder and the file type. 
+//Here the type is .gif and the * means to add any file with the .gif extension
+//What we actualy get is a list of paths we can access using the filename
+//e.g. this will give the filepath for ideat.gif images["ideate"]
 import images from "./images/thumbnails/*.gif";
 console.log(images);
 
@@ -5,21 +9,18 @@ console.log(images);
 const form = document.getElementById("taskform");
 const tasklist = document.getElementById("tasklist");
 
-// Initialize Tagify for the tags input field, we are using a template to include the remove button on each tag
+//This is for the tags input, we need to initialise the tags input as a Tagify object
 const tagsInput = document.getElementById("tags");
 const tagify = new Tagify(tagsInput);
 
-// Access the tags as an array using tagify.value
-const tagsArray = tagify.value;
-
-//list of options to add to the autocomplete form
+//list of options to add to the autocomplete form - these can be as long as you like
 const autocompleteOptions = ["Lion", "Tiger", "Elephant", "Giraffe"];
 
-// Get the datalist element and the input element
+// Get the datalist element and the input element for the autocomplete input section
 const datalist = document.getElementById("datalist-options");
 const autocompleteInput = document.getElementById("auto-c");
 
-// Populate the datalist with the options
+// Populate the datalist with the options we defined above, the options are appeneded to the datalist
 autocompleteOptions.forEach((option) => {
   const optionElement = document.createElement("option");
   optionElement.value = option;
