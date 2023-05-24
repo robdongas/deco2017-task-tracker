@@ -57,12 +57,39 @@
                     required="true"
                 >
             </div>
+            <!-- This is a row in our form for inputing tags. -->
+            <div class="form-row">
+                <label for="tags">Tags</label>
+                <input
+                    type="text"
+                    name="tags"
+                    id="tags"
+                    required="true"
+                >
+            </div>
+            <!-- This is a row in our form for inputing data with autocomplete. It is actualy a datalist and the autocomplete comes
+            from a pre-defined list, the list is filled with options in the script file -->
+            <div class="form-row">
+                <label for="autocomplete">Auto complete</label>
+                <input
+                    type="text"
+                    name="TaskAuto-c"
+                    id="auto-c"
+                    required="true"
+                    list="datalist-options"
+                >
+                <datalist id="datalist-options"></datalist>
+            </div>
             <div class="form-row">
                 <input type="submit">
             </div>
         </form>
         <h2>Tasks</h2>
         <ul id="tasklist"></ul>
+        <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+        <!-- To be able to import images and use parcel we need to set our script.js as a module -->
         <script type="module" src="script.js"></script>
     </body>
 </html>
