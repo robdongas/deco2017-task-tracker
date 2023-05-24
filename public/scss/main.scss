@@ -8,7 +8,7 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-header > h1 {
+header>h1 {
     text-align: center;
 }
 
@@ -22,7 +22,7 @@ form {
 .tagify {
     padding: 0.5em;
     flex-grow: 1;
-  }
+}
 
 .form-row {
     display: flex;
@@ -30,12 +30,24 @@ form {
     padding: 0.5em;
 }
 
-.form-row > label {
+.form-row .tagify__tag{
+    --tag-bg: #0052BF;
+    --tag-hover: #CE0078;
+    --tag-text-color: #FFF;
+    --tags-border-color: silver;
+    --tag-border-radius: 25px;
+    --tag-text-color--edit: #111;
+    --tag-remove-bg: var(--tag-hover);
+    --tag-inset-shadow-size: 1.35em;
+    --tag-remove-btn-bg--hover: black;
+}
+
+.form-row>label {
     width: 100px;
 }
 
-.form-row > input,
-.form-row > select {
+.form-row>input,
+.form-row>select {
     padding: 0.5em;
     flex-grow: 1;
 }
