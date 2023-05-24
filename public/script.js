@@ -38,7 +38,8 @@ form.addEventListener("submit", function (event) {
     form.elements.taskRate.value,
     form.elements.taskTime.value,
     form.elements.taskClient.value,
-    tagsArray
+    tagsArray,
+    form.elements.TaskAuto-c.value
   );
 });
 
@@ -110,7 +111,7 @@ function displayTasks() {
 // Replace the property values with the input paramaters
 // Add the object to the taskList array
 
-function addTask(name, type, rate, time, client, tags) {
+function addTask(name, type, rate, time, client, tags, autoC) {
   // Creating the object, directly passing in the input parameters
   let task = {
     name,
@@ -121,6 +122,7 @@ function addTask(name, type, rate, time, client, tags) {
     time,
     client,
     tags,
+    autoC
   };
 
   // Fetch and parse tasks array from localStorage
